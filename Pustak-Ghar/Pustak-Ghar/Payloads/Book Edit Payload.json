@@ -1,0 +1,16 @@
+{
+  "id": "105e4e97-81ba-4a89-b4c4-ded5fe1e98dd",
+  "title": "The Updated Book Title",
+  "isbn": "9781234567890",
+  "description": "An updated description of the book content.",
+  "author": "Updated Author Name",
+  "publisher": "Updated Publisher",
+  "genre": 2,
+  "price": 19.99,
+  "publicationDate": "2023-07-15T00:00:00.000Z",
+  "discountPercent": 15,
+  "stockCount": 75,
+  "is_awardwinning": false,
+  "format": 1,
+  "language": 1
+}

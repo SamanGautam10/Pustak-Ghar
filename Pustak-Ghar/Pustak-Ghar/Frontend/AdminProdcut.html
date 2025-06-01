@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पुस्तक घर - Book Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    ;
+    <link rel="stylesheet" href="css/adminPrDetails.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>S&S</span>
+                </div>
+                <h2>Admin Panel</h2>
+            </div>
+            </button>
+        </div>
+        <div class="sidebar-menu">
+            <a href="Home.html" class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="AdminBookManagement.html" class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Book Management</span>
+            </a>
+            <a href="Ordermanagement.html" class="sidebar-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <span>Order Management</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="product-container" id="product-container">
+            <!-- Dynamic books here  -->
+        </div>
+
+        <!-- Edit Book Modal -->
+        <div class="modal-overlay" id="edit-book-modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit Book</h3>
+                    <button class="close-modal" id="close-edit-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-book-form">
+                        <input type="hidden" id="edit-book-id" value="1">
+                        <input type="hidden" id="edit-book-desc" value="abc">
+
+                        <div class="form-group">
+                            <label for="edit-book-title">Title</label>
+                            <input type="text" id="edit-book-title" value="The Silent Echo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-isbn">ISBN</label>
+                            <input type="text" id="edit-book-isbn" value="978-3-16-148410-0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-author">Author</label>
+                            <input type="text" id="edit-book-author" value="Sarah J. Maas" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-publisher">Publisher</label>
+                            <input type="text" id="edit-book-publisher" value="Bloomsbury Publishing" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-genre">Genre</label>
+                            <select id="edit-book-genre">
+                                <option value="">Select Genre</option>
+                                <option value="Fiction">Fiction</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Biography">Biography</option>
+                                <option value="History">History</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Children">Children</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-price">Price ($)</label>
+                            <input type="number" id="edit-book-price" min="0" step="0.01" value="24.99" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-publication-date">Publication Date</label>
+                            <input type="date" id="edit-book-publication-date" value="2023-03-15" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-stock">Stock Count</label>
+                            <input type="number" id="edit-book-stock" min="0" step="1" value="42">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-format">Format</label>
+                            <select id="edit-book-format" required>
+                                <option value="">Select Format</option>
+                                <option value="Paperback">Paperback</option>
+                                <option value="Hardcover">Hardcover</option>
+                                <option value="Signed">Signed</option>
+                                <option value="Limited">Limited</option>
+                                <option value="First">First</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-book-language">Language</label>
+                            <select id="edit-book-language" required>
+                                <option value="">Select Language</option>
+                                <option value="English">English</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                                <option value="German">German</option>
+                                <option value="Chinese">Chinese</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="edit-is-award-winning" checked>
+                                <label for="edit-is-award-winning">Award Winner</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn" id="cancel-edit-btn">Cancel</button>
+                    <button class="save-btn" id="save-edit-btn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timed Sale Modal -->
+        <div class="modal-overlay" id="timed-sale-modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add Timed Sale</h3>
+                    <button class="close-modal" id="close-timed-sale-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="timed-sale-form">
+                        <div class="form-group">
+                            <label for="sale-discount">Discount Percentage (%)</label>
+                            <input type="number" id="sale-discount" min="1" max="90" step="0.1" value="25" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sale-end-date">End Date</label>
+                            <input type="date" id="sale-end-date" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn" id="cancel-timed-sale-btn">Cancel</button>
+                    <button class="save-btn" id="save-timed-sale-btn">Save Sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/adminPrDetails.js"></script>
+</body>
+
+</html>

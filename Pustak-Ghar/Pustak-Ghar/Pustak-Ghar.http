@@ -1,0 +1,6 @@
+@Pustak_Ghar_HostAddress = http://localhost:5155
+
+GET {{Pustak_Ghar_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,995 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>पुस्तक घर - Modern Bookstore</title>
+        <link rel="stylesheet" href="css/Home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap"rel="stylesheet">
+    </head>
+    <body>
+        <style>
+            
+            :root {
+                --primary-color: #A8C69F;
+                --primary-dark: #8AAD7D;
+                --primary-light: #EDF2EB;
+                --accent-color: #E6B89C;
+                --accent-secondary: #F9EAE1;
+                --text-color: #333333;
+                --text-light: #666666;
+                --white: #FFFFFF;
+                --off-white: #F9F9F7;
+                --border-color: #E8E8E3;
+                --shadow-color: rgba(0, 0, 0, 0.05);
+                --border-radius: 12px;
+                --font-heading: 'Playfair Display', serif;
+                --font-body: 'Poppins', sans-serif;
+            }
+        
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                color: var(--text-color);
+                line-height: 1.6;
+                font-family: var(--font-body);
+                background-color: var(--off-white);
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--text-color);
+                transition: color 0.3s ease;
+            }
+
+            a:hover {
+                color: var(--primary-color);
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            button {
+                cursor: pointer;
+                background-color: var(--primary-color);
+                color: var(--white);
+                border: none;
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-weight: 500;
+                font-family: var(--font-body);
+                font-size: 0.95rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 10px var(--shadow-color);
+            }
+
+            button:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px var(--shadow-color);
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-family: var(--font-heading);
+                font-weight: 500;
+            }
+
+            /* Header styles */
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 5%;
+                background-color: var(--white);
+                box-shadow: 0 2px 15px var(--shadow-color);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .logo {
+                width: 45px;
+                height: 45px;
+                color: var(--white);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 12px;
+                font-weight: 600;
+                font-size: 16px;
+                margin-right: 15px;
+                font-family: var(--font-heading);
+            }
+
+            .logo-container h1 {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--text-color);
+            }
+
+            nav ul {
+                display: flex;
+                gap: 35px;
+            }
+
+            nav ul li a {
+                font-weight: 400;
+                position: relative;
+                padding-bottom: 5px;
+                font-size: 0.95rem;
+            }
+
+            nav ul li a:hover,
+            nav ul li a.active {
+                color: var(--primary-color);
+            }
+
+            nav ul li a.active::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--primary-color);
+                border-radius: 10px;
+            }
+
+            .user-icon {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .icon {
+                width: 22px;
+                height: 22px;
+                color: var(--primary-color);
+            }
+
+            /* Hero section */
+            .hero {
+                display: flex;
+                align-items: center;
+                padding: 80px 5%;
+                background-color: var(--primary-light);
+                min-height: 550px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 70% 30%, var(--accent-secondary) 0%, transparent 25%);
+                opacity: 0.8;
+            }
+
+            .hero-content {
+                flex: 1;
+                padding-right: 40px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .subtitle {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 0.85rem;
+                color: var(--primary-dark);
+                font-weight: 500;
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            .hero-content h2 {
+                font-size: 3.2rem;
+                margin-bottom: 20px;
+                color: var(--text-color);
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 35px;
+                color: var(--text-light);
+                max-width: 550px;
+                font-weight: 300;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 14px 32px;
+                letter-spacing: 0.5px;
+            }
+
+            .hero-image {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 20px 40px var(--shadow-color);
+                border: 10px solid var(--white);
+            }
+
+            /* Categories section */
+            .categories {
+                padding: 80px 5%;
+                text-align: center;
+                background-color: var(--white);
+            }
+
+            .categories h2 {
+                font-size: 2.2rem;
+                margin-bottom: 50px;
+                color: var(--text-color);
+                position: relative;
+                display: inline-block;
+            }
+
+            .categories h2::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background-color: var(--primary-color);
+                border-radius: 10px;
+            }
+
+            .category-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .category-card {
+                background-color: var(--white);
+                border-radius: var(--border-radius);
+                overflow: hidden;
+                box-shadow: 0 5px 20px var(--shadow-color);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+            }
+
+            .category-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px var(--shadow-color);
+                border-color: var(--primary-color);
+            }
+
+            .category-img {
+                height: 160px;
+                background: linear-gradient(45deg, var(--primary-light) 0%, var(--accent-secondary) 100%);
+                position: relative;
+            }
+
+            .category-card h3 {
+                margin: 18px 0 5px;
+                color: var(--text-color);
+                font-size: 1.2rem;
+            }
+
+            .category-card p {
+                color: var(--primary-dark);
+                font-weight: 500;
+                margin-bottom: 18px;
+            }
+
+            /* Featured section */
+            .featured {
+                padding: 80px 5%;
+                background-color: var(--off-white);
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .featured::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+                opacity: 0.6;
+            }
+
+            .featured h2 {
+                font-size: 2.2rem;
+                margin-bottom: 50px;
+                color: var(--text-color);
+                position: relative;
+                display: inline-block;
+            }
+
+            .featured h2::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background-color: var(--primary-color);
+                border-radius: 10px;
+            }
+
+            .featured-books {
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                flex-wrap: wrap;
+                position: relative;
+                z-index: 2;
+            }
+
+            .book-card {
+                background-color: var(--white);
+                border-radius: var(--border-radius);
+                overflow: hidden;
+                box-shadow: 0 10px 25px var(--shadow-color);
+                width: 280px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                position: relative;
+                border: 1px solid var(--border-color);
+            }
+
+            .book-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px var(--shadow-color);
+                border-color: var(--primary-color);
+            }
+
+            .book-img {
+                height: 220px;
+                background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-secondary) 100%);
+            }
+
+            .book-badge {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background-color: var(--accent-color);
+                color: var(--white);
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+
+            .book-card h3 {
+                margin: 20px 20px 8px;
+                color: var(--text-color);
+                font-size: 1.3rem;
+            }
+
+            .book-card .author {
+                color: var(--text-light);
+                font-style: italic;
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }
+
+            .book-card .price {
+                color: var(--primary-dark);
+                font-weight: 600;
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+            }
+
+            .book-card button {
+                margin: 0 20px 20px;
+                width: calc(100% - 40px);
+            }
+
+            /* Newsletter section */
+            .newsletter {
+                padding: 60px 5%;
+                background-color: var(--accent-secondary);
+                text-align: center;
+            }
+
+            .newsletter-content {
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .newsletter h2 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+                color: var(--text-color);
+            }
+
+            .newsletter p {
+                margin-bottom: 30px;
+                color: var(--text-light);
+                font-size: 1.1rem;
+            }
+
+            .newsletter-form {
+                display: flex;
+                max-width: 500px;
+                margin: 0 auto;
+                box-shadow: 0 5px 20px var(--shadow-color);
+                border-radius: 30px;
+                overflow: hidden;
+            }
+
+            .newsletter-form input {
+                flex: 1;
+                padding: 15px 25px;
+                border: none;
+                outline: none;
+                font-family: var(--font-body);
+                font-size: 1rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 0 30px 30px 0;
+                padding: 15px 30px;
+                box-shadow: none;
+            }
+
+            /* Footer */
+            footer {
+                background-color: var(--white);
+                color: var(--text-color);
+                padding: 70px 5% 30px;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 50px;
+                margin-bottom: 50px;
+            }
+
+            .footer-section h3 {
+                margin-bottom: 25px;
+                font-size: 1.3rem;
+                position: relative;
+                display: inline-block;
+                color: var(--text-color);
+            }
+
+            .footer-section h3::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 40px;
+                height: 2px;
+                background-color: var(--primary-color);
+            }
+
+            .footer-section p {
+                color: var(--text-light);
+                margin-bottom: 10px;
+                font-size: 0.95rem;
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: var(--primary-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-color);
+                transition: all 0.3s ease;
+            }
+
+            .social-icon:hover {
+                background-color: var(--primary-color);
+                color: var(--white);
+                transform: translateY(-3px);
+            }
+
+            .footer-section ul li {
+                margin-bottom: 12px;
+            }
+
+            .footer-section ul li a {
+                color: var(--text-light);
+                font-size: 0.95rem;
+                transition: color 0.3s ease, padding-left 0.3s ease;
+            }
+
+            .footer-section ul li a:hover {
+                color: var(--primary-color);
+                padding-left: 5px;
+            }
+
+            .copyright {
+                text-align: center;
+                padding-top: 30px;
+                border-top: 1px solid var(--border-color);
+                color: var(--text-light);
+                font-size: 0.9rem;
+            }
+
+            /* Responsive design */
+            @media (max-width: 992px) {
+                .hero {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 60px 5%;
+                }
+
+                .hero-content {
+                    padding-right: 0;
+                    margin-bottom: 50px;
+                }
+
+                .hero-content p {
+                    margin: 0 auto 35px;
+                }
+
+                .hero-content h2 {
+                    font-size: 2.5rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 15px 5%;
+                }
+
+                nav ul {
+                    gap: 20px;
+                }
+
+                .featured-books {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .newsletter-form {
+                    flex-direction: column;
+                    border-radius: 12px;
+                }
+
+                .newsletter-form input {
+                    padding: 15px;
+                    text-align: center;
+                }
+
+                .newsletter-form button {
+                    border-radius: 0 0 12px 12px;
+                }
+            }
+
+            @media (max-width: 576px) {
+                nav ul {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 15px;
+                }
+
+                .hero-content h2 {
+                    font-size: 2rem;
+                }
+
+                .categories h2,
+                .featured h2 {
+                    font-size: 1.8rem;
+                }
+
+                .book-card,
+                .category-card {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+
+            .user-icon-container {
+                position: relative;
+                display: inline-block;
+            }
+            .catrgoryimg{
+                height: 157px;
+        object-fit: cover;
+        width: 20rem;
+            }
+
+            .user-icon {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: 100%;
+                background-color: var(--white);
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                border-radius: var(--border-radius);
+                overflow: hidden;
+            }
+
+            .dropdown-content a {
+                color: var(--text-color);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                font-size: 0.9rem;
+                transition: background-color 0.3s;
+            }
+
+            .dropdown-content a:hover {
+                background-color: var(--primary-light);
+                color: var(--primary-dark);
+            }
+
+            .user-icon-container:hover .dropdown-content {
+                display: block;
+            }
+            .auto-slider {
+                padding: 80px 5%;
+                background-color: var(--white);
+                text-align: center;
+                overflow: hidden;
+            }
+            
+            .auto-slider h2 {
+                font-size: 2.2rem;
+                margin-bottom: 50px;
+                color: var(--text-color);
+                position: relative;
+                display: inline-block;
+            }
+            
+            .auto-slider h2::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background-color: var(--primary-color);
+                border-radius: 10px;
+            }
+            
+            .slider-container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+                position: relative;
+                border-radius: var(--border-radius);
+                box-shadow: 0 10px 30px var(--shadow-color);
+            }
+            
+            .slider-track {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 400%; /* 100% × number of slides */
+            }
+            
+            .slide {
+                width: 25%; /* 100% ÷ number of slides */
+                flex-shrink: 0;
+                height: 400px;
+                position: relative;
+            }
+            
+            .slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+            /* Navigation buttons */
+            .slider-nav {
+                position: absolute;
+                bottom: 20px;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                z-index: 10;
+            }
+            
+            .slider-nav-btn {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border: none;
+            }
+            
+            .slider-nav-btn.active {
+                background-color: var(--white);
+                transform: scale(1.2);
+            }
+            
+            /* Arrow controls */
+            .slider-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                background-color: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.3s ease;
+            }
+            
+            .slider-arrow:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            
+            .slider-arrow.prev {
+                left: 20px;
+            }
+            
+            .slider-arrow.next {
+                right: 20px;
+            }
+            
+            .slider-arrow svg {
+                width: 24px;
+                height: 24px;
+                color: var(--text-color);
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .slide {
+                    height: 300px;
+                }
+                
+                .slider-arrow {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .slide {
+                    height: 250px;
+                }
+                
+                .slider-arrow {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        </style>
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/media/logo/logo.png" alt="" height="45px" width="45px">
+                </div>
+                <h1>पुस्तक घर</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html" class="active">Home</a></li>
+                    <li><a href="catalog.html">Catalog</a></li>
+                    <li id="admin" ><a href="AdminBookManagement.html">Admin</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">MyCart</a></li>
+                </ul>
+            </nav>
+            <a href="userprofile.html" id="account-link">
+                <div class="user-icon-container">
+                    <div class="user-icon" id="account-dropdown">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <span id="user-fullname">Account</span>
+                    </div>
+                    <div class="dropdown-content" id="dropdown-menu">
+                        <a href="userprofile.html" id="Profile">Profile</a>
+                        <a href="#" id="Logout" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="subtitle">Welcome to our collection</span>
+                <h2>Find Your Next Literary Adventure</h2>
+                <p>Discover stories that inspire, educate, and transport you to new worlds. Our carefully curated selection
+                    offers something for every reader.</p>
+                <button class="cta-button"><a href="catalog.html">Explore Books</a></button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1657879005206-3a27c0b782f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Bookstore illustration">
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Browse Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='https://localhost:7048/catalog.html?category=Romance'">
+                    <div class="category-img">
+                        <img class="catrgoryimg" src="../media/couple-hugs-before-violet-evening-sky-mountains.jpg" alt="" srcset="">
+                    </div>
+                    <h3>Romance</h3>
+                    <p>$10.99+</p>
+                </div>
+                <div class="category-card" onclick="location.href='https://localhost:7048/catalog.html?category=Biography'">
+                    <div class="category-img">
+                    <img class="catrgoryimg" src="../media/49483949.jpg" alt="" srcset="">
+
+                    </div>
+                    <h3>Biography</h3>
+                    <p>$15.99+</p>
+                </div>
+                <div class="category-card" onclick="location.href='https://localhost:7048/catalog.html?category=Children'">
+                    <div class="category-img">
+                        <img class="catrgoryimg" src="../media/image.jpg" alt="" srcset="">
+                    </div>
+                    <h3>Children</h3>
+                    <p>$9.99+</p>
+                </div>
+                <div class="category-card" onclick="location.href='https://localhost:7048/catalog.html?category=Fantasy'">
+                    <div class="category-img">
+                        <img class="catrgoryimg" src="../media/fantast.jpeg" alt="" srcset="">
+                    </div>
+                    <h3>Fantasy</h3>
+                    <p>$12.99+</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="auto-slider" id="auto-slider">
+            <h2>What's Trending</h2>
+            <div class="slider-container">
+                <div class="slider-track" id="sliderJS">
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1747029932902-1abc623ed815?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Trending Book 1"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1747629382443-4176ca83b5de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D" alt="Trending Book 2"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1747607176057-175b357ef4ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D" alt="Trending Book 3"></div>
+                    <div class="slide"><img src="https://plus.unsplash.com/premium_photo-1747674292543-e2600bd34375?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D" alt="Trending Book 4"></div>
+                </div>
+
+                <!-- Add arrow controls -->
+                <div class="slider-arrow prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </div>
+                <div class="slider-arrow next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>पुस्तक घर</h3>
+                    <p>Curating literary experiences since 2005</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="cart.html">MyCart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="UserOrderHistory.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <p>123 Kamal Pokhari, Kathmandu</p>
+                    <p>Mon-Fri: 9am - 8pm</p>
+                    <p>Sat-Sun: 10am - 6pm</p>
+                    <p>Phone: (01) 123-4567</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; पुस्तक घर 2025 . All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="js/home.js"></script>
+        <script></script>
+    </body>
+
+
+    </html>

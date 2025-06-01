@@ -1,0 +1,99 @@
+## .NET Core / ASP.NET Core Web API
+
+# Build output
+bin/
+obj/
+artifacts/
+[Bb]uild[Ll]og.*
+*.log
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# VS Code folder
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+.vscode/
+*.suo
+*.ntvs_analysis.dat
+*.cache
+*.dbmdl
+*.bak
+*.orig
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# IIS Express
+.vsconfig
+/.vs/
+/iisexpress/
+
+
+/Migrations/
+Pustak-Ghar/Pustak-Ghar/Migrations/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Package manager
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+packages/
+# Uncomment below if using PackageReference
+# !**/packages.config
+
+# DotCover
+.idea/
+*.dotCover
+
+# JetBrains Rider
+.idea/
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Code Coverage
+*.coverage
+*.coveragexml
+TestResults/
+Coverage/
+CodeCoverage/
+
+# Test results
+[Tt]est[Rr]esult*/
+nunit-*.xml
+*.VisualState.xml
+TestResult.xml
+
+# Logs
+*.log
+Logs/
+
+# Others
+~$*
+*~
+*.tmp
+*.bak
+
+# Deployment
+publish/
+
+# Confiuration files
+appsettings.json
+appsettings.*.json
+

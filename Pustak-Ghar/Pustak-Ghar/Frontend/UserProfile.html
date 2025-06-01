@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पुस्तक घर - User Profile</title>\
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="/media/logo/logo.png" alt="" height="45px" width="45px">
+            </div>
+            <h1>पुस्तक घर</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li id="admin"><a href="AdminBookManagement.html">Admin</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="cart.html">MyCart</a></li>
+            </ul>
+        </nav>
+        <a href="userprofile.html" id="account-link">
+            <div class="user-icon-container">
+                <div class="user-icon" id="account-dropdown">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span id="user-fullname">Account</span>
+                </div>
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="userprofile.html" id="Profile">Profile</a>
+                    <a href="#" id="Logout" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </a>
+    </header>
+
+    <section class="profile-header">
+        <div class="profile-title">
+            <h2>User Profile</h2>
+            <p>Manage your personal information and account settings</p>
+        </div>
+    </section>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-content">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-image">
+                        <img src="https://via.placeholder.com/160">
+                    </div>
+                    <div class="profile-name">
+                        <h3>Sarah Johnson</h3>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="edit-profile-btn" id="editProfileBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                            Edit Profile
+                        </button>
+                        <button class="change-password-btn" id="changePasswordBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Change Password
+                        </button>
+                        <button class="my-orders-btn"
+                            onclick="window.location='https://localhost:7048/profile-orders.html'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M6 2l1.5 4h9L18 2"></path>
+                                <path d="M3 6h18l-1.68 11.39A2 2 0 0 1 17.33 19H6.67a2 2 0 0 1-1.99-1.61L3 6z"></path>
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="15" cy="21" r="1"></circle>
+                            </svg>
+                            My Orders
+                        </button>
+
+                        <button class="logout-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="profile-details">
+                    <div class="profile-section">
+                        <h3>Personal Information</h3>
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    Email
+                                </div>
+                                <div class="info-value" id="userEmail">sarah.johnson@example.com</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    First Name
+                                </div>
+                                <div class="info-value" id="userFirstName">Sarah</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    Last Name
+                                </div>
+                                <div class="info-value" id="userLastName">Johnson</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    Phone Number
+                                </div>
+                                <div class="info-value" id="userPhone">+1 (555) 123-4567</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    Gender
+                                </div>
+                                <div class="info-value" id="userGender">Female</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    Address
+                                </div>
+                                <div class="info-value" id="userAddress">123 Reading Lane, Bookville, NY 10001</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Dialog -->
+    <div class="edit-dialog" id="editDialog">
+        <div class="edit-form">
+            <div class="form-header">
+                <h3>Edit Profile</h3>
+                <button class="close-btn" id="closeDialog">×</button>
+            </div>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" value="sarah.johnson@example.com"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" value="Sarah" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" value="Johnson" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" value="+1 (555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" class="form-control" required>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Non-binary">Non-binary</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" class="form-control"
+                        required>123 Reading Lane, Bookville, NY 10001</textarea>
+                </div>
+                <div class="form-footer">
+                    <button type="button" class="cancel-btn" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Password Change Dialog -->
+    <div class="password-dialog" id="passwordDialog">
+        <div class="edit-form">
+            <div class="form-header">
+                <h3>Change Password</h3>
+                <button class="close-btn" id="closePasswordDialog">×</button>
+            </div>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" name="currentPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                </div>
+                <div class="form-footer">
+                    <button type="button" class="cancel-btn" id="cancelPassword">Cancel</button>
+                    <button type="submit" class="save-btn">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>पुस्तक घर</h3>
+                <p>Curating literary experiences since 2005</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">MyCart</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="profile-orders.html">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>123 Kamal Pokhari, Kathmandu</p>
+                <p>Mon-Fri: 9am - 8pm</p>
+                <p>Sat-Sun: 10am - 6pm</p>
+                <p>Phone: (01) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; पुस्तक घर 2025 . All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const userId = sessionStorage.getItem('UserID');
+            const jwt = sessionStorage.getItem('jwtToken');
+
+            if (!userId || !jwt) {
+                window.location.href = 'Login.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://localhost:7048/account/profile/${userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${jwt}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user profile');
+                }
+
+                const data = await response.json();
+
+                // Fill in the profile fields
+                document.getElementById('userEmail').textContent = data.email || '';
+                document.getElementById('userFirstName').textContent = data.firstName || '';
+                document.getElementById('userLastName').textContent = data.lastName || '';
+                document.getElementById('userPhone').textContent = data.phoneNumber || '';
+                document.getElementById('userGender').textContent = data.gender || '';
+                document.getElementById('userAddress').textContent = data.address || '';
+
+                // Update Edit Form fields as well
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('firstName').value = data.firstName || '';
+                document.getElementById('lastName').value = data.lastName || '';
+                document.getElementById('phone').value = data.phoneNumber || '';
+                document.getElementById('gender').value = data.gender || '';
+                document.getElementById('address').value = data.address || '';
+
+                // Sidebar name
+                document.querySelector('.profile-name h3').textContent = `${data.firstName} ${data.lastName}`;
+
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        });
+    </script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

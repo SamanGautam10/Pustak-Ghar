@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पुस्तक घर - Order History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="css/Userhistory.css">
+</head>
+<body>
+    <style></style>
+    <header class="site-header">
+        <div class="logo">
+            <img src="/media/logo/logo.png" alt="Sage & Story Logo">
+            <span>पुस्तक घर</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="Home.html" class="nav-link">Home</a>
+            <a href="catalog.html" class="nav-link">Catalog</a>
+            <a href="AdminBookManagement.html" class="nav-link">Admin</a>
+            <a href="wishlist.html" class="nav-link">Wishlist</a>
+            <a href="cart.html" class="nav-link">My Cart</a>
+        </nav>
+        <div class="user-actions">
+            <div class="user-icon" id="user-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section class="order-header">
+            <div class="breadcrumb">
+                <a href="Home.html">Home</a>
+                <span class="separator">/</span>
+                <span class="current">Order History</span>
+            </div>
+            <div class="order-title">
+                <h2>My Orders</h2>
+                <p>View and manage your order history</p>
+            </div>
+        </section>
+
+        <div class="order-container">
+            
+
+            <div id="loading-container" class="loading-container">
+                <div class="loading-spinner"></div>
+            </div>
+
+            <div class="order-list" id="order-list">
+
+            </div>
+        </div>
+        <!-- Order Detail Modal -->
+        <div class="modal-overlay" id="order-detail-modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Order Details</h3>
+                    <button class="close-modal" id="close-detail-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body" id="order-detail-content">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="close-detail-btn" id="close-detail-btn">Close</button>
+                    <button class="cancel-detail-btn" id="cancel-detail-btn" data-order-id="">Cancel Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancel Confirmation Modal -->
+        <div class="modal-overlay" id="cancel-modal-overlay">
+            <div class="modal cancel-modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Cancel Order</h3>
+                    <button class="close-modal" id="close-cancel-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h4 class="modal-message">Are you sure you want to cancel this order?</h4>
+                    <p class="modal-description">This action cannot be undone. The order will be canceled and any
+                        pending charges will be refunded according to our refund policy.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn" id="cancel-cancel-btn">No, Keep Order</button>
+                    <button class="confirm-cancel-btn" id="confirm-cancel-btn" data-order-id="">Yes, Cancel
+                        Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/UserHistory.js"></script>
+</body>
+
+</html>
